@@ -17,16 +17,16 @@ const handleClick = (id) => {
 const toggleModal = () => {
 	showModal = ! showModal;
 };
+
+const addPerson = (e) => {
+	const person = e.detail;
+
+	people = [person, ...people];
+};
 </script>
 
-<Modal message="Hey, I'm a prop value!" {showModal} on:click={toggleModal}>
-	<h3>Add a New Person</h3>
-
-	
-
-	<div slot="title">
-		<h3>Add a New Person</h3>
-	</div>
+<Modal {showModal} on:click={toggleModal}>
+	<AddPersonForm on:addPerson={addPerson} />
 </Modal>
 
 <main>
